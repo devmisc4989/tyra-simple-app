@@ -1,0 +1,36 @@
+<div class="wrapper">
+
+		<div ng-include="'ng-app/views/header.html'"></div>
+		<!-- Left side column. contains the logo and sidebar -->
+		<div ng-include="'ng-app/views/sidebar.html'"></div>
+		
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Blogg List
+				</h1>
+			</section>
+			<!-- Main content -->
+			<section class="content">
+				<div class="box box-info">
+					<div class="box-body">
+						<div class="blogg-content" ng-repeat="blogg in blogg_docs" ng-if="blogg_docs.length > 0">
+							<h3>{{blogg.blogg_topic}}</h3>
+							<h4>Posted by {{blogg.blogg_author.username}}</h4>							
+							<h4>Posted at {{blogg.createdAt | date:'medium'}}</h4>							
+							<div ng-repeat="blogg_img in blogg.images" ng-if="blogg.images.length > 0">
+								<img src ="{{blogg_img.image.url}}"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.box -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<div ng-include="'ng-app/views/footer.html'"></div>
+	</div>
+	<!-- ./wrapper -->
